@@ -13,18 +13,32 @@ import java.sql.DriverManager;
  * @author Dismaelectric
  */
 public class ConexionBase {
-public void realizaConexion(){
-            Connection conn = null;
-            String urlDatabase =  "jdbc:postgresql://localhost:5432/labo8"; 
-            try {
-                Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection(urlDatabase,  "postgres", "1234");
-            } catch (Exception e) {
-                System.out.println("Ocurrio un error : "+e.getMessage());
-            }
-            System.out.println("La conexión se realizo sin problemas! =) ");
-}
+   private final String DRIVER = "org.postgresql.Driver";  
+    //Cadena de conexión
+    private final String URL = "jdbc:postgresql://localhost:5432/LaboFinal";  
+    //usuario de la base de datos
+    private final String USERNAME = "postgres";    
+    // contraseña de la base de datos
+    private final String PASSWORD = "1234"; 
     
-   
+    private Connection connection;
+
+    //metodo que establece la conexion
+    public ConexionBase() {
+        connection = null;
+        try{
+            Class.forName(DRIVER);
+            connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+        }catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Opened database successfully");
+
+    }
+    public Connection getConnection(){
+        return connection;
+    }
     
  }
