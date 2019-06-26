@@ -13,6 +13,7 @@ public class Producto {
     private int id;
     private String nombre;
     private int idCategoria;
+    private String nombre_categoria; 
     private float precioUni;
     private int existencia;
 
@@ -26,6 +27,7 @@ public class Producto {
         this.precioUni = precioUni;
         this.existencia = existencia;
     }
+        
 
     public int getId() {
         return id;
@@ -66,6 +68,12 @@ public class Producto {
     public void setExistencia(int existencia) {
         this.existencia = existencia;
     }
-    
-    
+
+    public String getNombre_categoria() {
+        return nombre_categoria;
+    }
+
+    public void setNombre_categoria(String nombre_categoria) {
+        this.nombre_categoria = nombre_categoria;
+    }
 }

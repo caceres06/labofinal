@@ -34,8 +34,18 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setText("ADMINISTRACION DE PRODUCTOS");
 
         btncrear.setText("Create");
+        btncrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncrearActionPerformed(evt);
+            }
+        });
 
         btnread.setText("Read");
+        btnread.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreadActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +55,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,8 +100,28 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        Update u = new Update();
+        u.setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearActionPerformed
+        setVisible(false);
+        Create crear = new Create();
+        crear.setVisible(true);
+    }//GEN-LAST:event_btncrearActionPerformed
+
+    private void btnreadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreadActionPerformed
+        setVisible(false);
+        Mostrar m = new Mostrar();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnreadActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        setVisible(false);
+        Delete d = new Delete();
+        d.setVisible(true);
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -52,7 +52,8 @@ public boolean Crear(int id,String nombre, int id_cate,float precioUni,int exist
    public List<Producto> ReadAll(){
         Connection conn = cb.getConnection();
         List<Producto> pro = new ArrayList();
-        String query = "SELECT * FROM producto";
+        String query = "SELECT p.id_producto,p.nombre_producto,cp.nombre_categoria,p.precio_unitario,p.cantidad_existencia \n" +
+"FROM producto p, categoria_producto cp WHERE p.id_categoria=cp.id_categoria;";
         try{
             PreparedStatement stm = conn.prepareStatement(query);
             ResultSet rs = stm.executeQuery();
@@ -60,7 +61,7 @@ public boolean Crear(int id,String nombre, int id_cate,float precioUni,int exist
                 Producto producto = new Producto();
                 producto.setId(rs.getInt("id_producto"));
                 producto.setNombre(rs.getString("nombre_producto"));
-                producto.setIdCategoria(rs.getInt("id_categoria"));
+                producto.setNombre_categoria(rs.getString("nombre_categoria"));
                 producto.setPrecioUni(rs.getFloat("precio_unitario"));
                 producto.setExistencia(rs.getInt("cantidad_existencia"));
                 pro.add(producto);
